@@ -1,0 +1,37 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.cart {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.cart-item span {
+    margin: 0 10px;
+}
+
+.btn-like {
+    color: black; /* Default color */
+    cursor: pointer;
+}
+
+.btn-like.liked {
+    color: red;
+}
+
+.btn-minus, .btn-plus, .btn-delete {
+    margin: 0 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.total-price-container {
+    margin-top: 20px;
+}
