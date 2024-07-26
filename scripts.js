@@ -1,60 +1,55 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const cartItems = document.querySelectorAll('.cart-item');
+let trashbuttons = document.querySelectorAll(".fa-trash-alt")
+console.log(trashbuttons);
+for (let trashbtn of trashbuttons) {
+   trashbtn.addEventListener("click", function () {
+      trashbtn.closest(".toBeRemoved").remove()
+      TotalPrice()
+   })
 
-    cartItems.forEach(item => {
-        const btnMinus = item.querySelector('.btn-minus');
-        const btnPlus = item.querySelector('.btn-plus');
-        const btnDelete = item.querySelector('.btn-delete');
-        const btnLike = item.querySelector('.btn-like');
-        const quantitySpan = item.querySelector('.quantity');
-        const itemTotalPrice = item.querySelector('.item-total-price');
-        const itemPrice = parseFloat(item.dataset.price);
+}
 
-        btnMinus.addEventListener('click', () => {
-            let quantity = parseInt(quantitySpan.textContent);
-            if (quantity > 1) {
-                quantity--;
-                quantitySpan.textContent = quantity;
-                itemTotalPrice.textContent = `$${(quantity * itemPrice).toFixed(2)}`;
-                updateTotalPrice();
-            }
-        });
+// +
+ let PlusButtons=document.querySelectorAll(".fa-plus-circle")
+  for ( let plusBtn of PlusButtons){
+  
+   plusBtn.addEventListener("click" , function(){
+      plusBtn.nextElementSibling.innerHTML++
+      TotalPrice()
+   })
+ }
 
-        btnPlus.addEventListener('click', () => {
-            let quantity = parseInt(quantitySpan.textContent);
-            quantity++;
-            quantitySpan.textContent = quantity;
-            itemTotalPrice.textContent = `$${(quantity * itemPrice).toFixed(2)}`;
-            updateTotalPrice();
-        });
+//-
+let MinusButtons=document.querySelectorAll(".fa-minus-circle")
+for ( let MinusBtn of MinusButtons){
 
-        btnDelete.addEventListener('click', () => {
-            item.remove();
-            updateTotalPrice();
-        });
+   MinusBtn.addEventListener("click" , function(){
+      if (MinusBtn.previousElementSibling.innerHTML>0) {
+         MinusBtn.previousElementSibling.innerHTML--
+      }
+      TotalPrice()
+      
+   })
+ }
 
-        btnLike.addEventListener('click', () => {
-            btnLike.classList.toggle('liked');
-        });
-    });
+ 
+//total price
+function TotalPrice(){
+   let quantity=document.querySelectorAll(".quantity")
+   let price=document.querySelectorAll(".unit-price")
+   let sum=0
 
-    function updateTotalPrice() {
-        let totalPrice = 0;
-        document.querySelectorAll('.cart-item').forEach(item => {
-            const itemTotalPrice = item.querySelector('.item-total-price').textContent;
-            totalPrice += parseFloat(itemTotalPrice.replace('$', ''));
-        });
-        document.getElementById('total-price').textContent = `$${totalPrice.toFixed(2)}`;
+   for (let i=0 ;i<quantity.length ; i++){
+     sum+= quantity[i].innerHTML * price[i].innerHTML
     }
 
-    updateTotalPrice();
-}); 
-document.addEventListener('DOMContentLoaded', () => {
-    const likeButtons = document.querySelectorAll('.btn-like');
+document.getElementById("total").innerHTML=`${sum} $`
+}
+TotalPrice()
 
-    likeButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            button.classList.toggle('liked');
-        });
-    });
-});
+//like
+let heartButtons = document.querySelectorAll(".fa-heart")
+for( let heartBtn of  heartButtons) {
+   heartBtn.addEventListener("click" , function(){
+      heartBtn.classList.toggle("liked")
+   })
+}
