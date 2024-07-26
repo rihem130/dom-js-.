@@ -36,9 +36,9 @@ for ( let MinusBtn of MinusButtons){
 function TotalPrice(){
    let quantity=document.querySelectorAll(".quantity")
    let price=document.querySelectorAll(".unit-price")
-   let sum=0
+   let sum=1
 
-   for (let i=0 ;i<quantity.length ; i++){
+   for (let i=1;i<quantity.length ; i++){
      sum+= quantity[i].innerHTML * price[i].innerHTML
     }
 
