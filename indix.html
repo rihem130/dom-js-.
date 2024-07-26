@@ -19,7 +19,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link rel="stylesheet" href="./style/style.css" />
+    <link rel="stylesheet" href="style.css" />
     <title>Workshop DOM</title>
   </head>
   <body>
@@ -89,11 +89,11 @@
       <section class="shopping-card-container">
         <div class="total-price">
           <span> Total price : </span>
-          <span class="total"> 0 $ </span>
+          <span class="total" id="total"> 0 $ </span>
         </div>
         <div class="list-products">
           <!-- Product 1 : baskets -->
-          <div class="card-body">
+          <div class="card-body toBeRemoved">
             <div class="card" style="width: 18rem">
               <img
                 src="baskets.png"
@@ -103,7 +103,7 @@
               <div class="card-body">
                 <h5 class="card-title">Baskets</h5>
                 <p class="card-text">This is a basket</p>
-                <h4 class="unit-price">100 $</h4>
+                <h4 class="unit-price"><span class="price">100</span> $</h4>
                 <div>
                   <i class="fas fa-plus-circle"></i>
                   <span class="quantity">0</span>
@@ -118,13 +118,13 @@
           </div>
           <!-- Product 2 : socks -->
 
-          <div class="card-body">
+          <div class="card-body toBeRemoved">
             <div class="card" style="width: 18rem">
               <img src="socks.png" class="card-img-top" alt="socks" />
               <div class="card-body">
                 <h5 class="card-title">Socks</h5>
                 <p class="card-text">This is a socks</p>
-                <h4 class="unit-price">20 $</h4>
+                <h4 class="unit-price"><span class="price">20</span> $</h4>
                 <div>
                   <i class="fas fa-plus-circle"></i>
                   <span class="quantity">0</span>
@@ -138,13 +138,13 @@
             </div>
           </div>
           <!-- Product 3 : bag -->
-          <div class="card-body">
+          <div class="card-body toBeRemoved">
             <div class="card" style="width: 18rem">
               <img src="bag.png" class="card-img-top" alt="bag" />
               <div class="card-body">
                 <h5 class="card-title">Bag</h5>
                 <p class="card-text">This is a Bag</p>
-                <h4 class="unit-price">50 $</h4>
+                <h4 class="unit-price"><span class="price">50</span> $</h4>
                 <div>
                   <i class="fas fa-plus-circle"></i>
                   <span class="quantity">0</span>
@@ -170,6 +170,6 @@
     ></script>
 
     <!-- My JS -->
-    <script src="./js/script.js"></script>
+    <script src="scripts.js"></script>
   </body>
 </html>
